@@ -60,6 +60,12 @@ npm run dev
 
 Backend runs at: **http://localhost:5000**
 
+> Optional: from the repository root you can use the new full-stack scripts:
+> ```bash
+> npm install-all
+> npm run dev
+> ```
+
 ---
 
 ### 2. Frontend Setup
@@ -71,6 +77,46 @@ npm start
 ```
 
 Frontend runs at: **http://localhost:3000**
+
+---
+
+### 3. Production Deployment / Website
+
+1. Build the project and package the frontend:
+```bash
+cd frontend
+npm run build
+```
+2. Start the backend in production mode:
+```bash
+cd backend
+npm start
+```
+3. Open your browser at the backend URL:
+```bash
+http://localhost:5000
+```
+
+The backend now serves the React app from `frontend/build` and proxies API requests via `/api`.
+
+> Optional: set `REACT_APP_API_URL` in the frontend environment if your API runs on a different host.
+
+---
+
+## 🚀 Deploy to Render
+
+The repo now includes a Render service definition at `render.yaml`.
+
+1. Push this repo to GitHub.
+2. Create a new Web Service on Render and connect your GitHub repo.
+3. Use these commands:
+   - Build Command: `npm run build`
+   - Start Command: `npm start`
+4. Add Render environment variables:
+   - `MONGO_URI` — your MongoDB connection string
+   - `JWT_SECRET` — your JWT secret
+
+Render will install root dependencies, run `postinstall`, and then build and start the app.
 
 ---
 

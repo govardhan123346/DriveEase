@@ -1,0 +1,14 @@
+{
+  "name": "car-rental",
+  "private": true,
+  "scripts": {
+    "install-all": "npm install --prefix backend && npm install --prefix frontend",
+    "postinstall": "npm run install-all",
+    "dev": "npx concurrently \"npm --prefix backend run dev\" \"npm --prefix frontend start\"",
+    "build": "npm run install-all && npm --prefix frontend run build",
+    "start": "npm --prefix backend start"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

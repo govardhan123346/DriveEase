@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: DriveEase
+    env: node
+    plan: free
+    branch: main
+    buildCommand: npm run build
+    startCommand: npm start
+    envVars:
+      - key: MONGO_URI
+        fromSecret: MONGO_URI
+      - key: JWT_SECRET
+        fromSecret: JWT_SECRET
